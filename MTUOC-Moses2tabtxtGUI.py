@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox
+import codecs
+
 
 def select_file(entry):
     """Open file dialog to select a file and set its path to the entry widget."""
@@ -19,7 +21,7 @@ def process_files(input1_path, input2_path, output_path):
     """Process the two input files line by line and write the combined unique lines to the output file."""
     try:
         # Use a set to track unique combined lines
-        with open(input1_path, 'r') as file1, open(input2_path, 'r') as file2, open(output_path, 'w') as outfile:
+        with codecs.open(input1_path, 'r',encoding="utf-8") as file1, codecs.open(input2_path, 'r',encoding="utf-8") as file2, codecs.open(output_path, 'w',encoding="utf-8") as outfile:
             while 1:
                 line1 = file1.readline().strip()
                 line2 = file2.readline().strip()
